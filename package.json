@@ -29,12 +29,9 @@
     "cli",
     "prompt"
   ],
-  "author": "Eduardo Bouças <mail@eduardoboucas.com>",
+  "author": "vsymonenko <simonenko744@gmail.com>",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/eduardoboucas/inquirer-table-prompt/issues"
-  },
-  "homepage": "https://github.com/eduardoboucas/inquirer-table-prompt#readme",
+  "homepage": "https://github.com/VSymonenko/inquirer-table-prompt#readme",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
