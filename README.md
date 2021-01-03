@@ -1,13 +1,14 @@
-# inquirer-table-prompt [![npm version](https://badge.fury.io/js/inquirer-table-prompt.svg)](https://badge.fury.io/js/inquirer-table-prompt)
+# inquirer-table-multiple [![npm version](https://badge.fury.io/js/inquirer-table-multiple.svg)](https://badge.fury.io/js/inquirer-table-multiple)
 
 > A table-like prompt for [Inquirer.js](https://github.com/SBoudrias/Inquirer.js)
 
-![Screen capture of the table prompt](screen-capture.gif)
+<!-- FIXME replace git -->
+<!-- ![Screen capture of the table prompt](screen-capture.gif) -->
 
 ## Installation
 
 ```
-npm install --save inquirer-table-prompt
+npm install --save inquirer-table-multiple
 ```
 
 ## Usage
@@ -46,41 +47,37 @@ inquirer
       rows: [
         {
           name: "Monday",
-          value: 0
+          value: []
         },
         {
           name: "Tuesday",
-          value: 1
+          value: []
         },
         {
           name: "Wednesday",
-          value: 2
+          value: []
         },
         {
           name: "Thursday",
-          value: 3
+          value: []
         },
         {
           name: "Friday",
-          value: 4
+          value: []
         },
         {
           name: "Saturday",
-          value: 5
+          value: []
         },
         {
           name: "Sunday",
-          value: 6
+          value: []
         }
       ]
     }
   ])
   .then(answers => {
-    /*
-    { workoutPlan:
-      [ 'arms', 'legs', 'cardio', undefined, 'legs', 'arms', undefined ] }    
-    */
-    console.log(answers);
+    // do something
   });
 ```
 
