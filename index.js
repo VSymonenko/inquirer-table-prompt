@@ -23,7 +23,10 @@ class TablePrompt extends Base {
     this.pointer = 0;
     this.horizontalPointer = 0;
     this.rows = new Choices(this.opt.rows, []);
-    this.values = this.columns.filter(() => true).map(() => undefined);
+    this.values = {};
+    this.rows.forEach(row => {
+      this.values[row.name] = [];
+    });
 
     this.pageSize = this.opt.pageSize || 5;
   }
@@ -75,13 +78,7 @@ class TablePrompt extends Base {
   }
 
   getCurrentValue() {
-    const currentValue = [];
-
-    this.rows.forEach((row, rowIndex) => {
-      currentValue.push(this.values[rowIndex]);
-    });
-
-    return currentValue;
+    return this.values;
   }
 
   onDownKey() {
@@ -122,10 +119,23 @@ class TablePrompt extends Base {
     this.render();
   }
 
-  onSpaceKey() {
-    const value = this.columns.get(this.horizontalPointer).value;
+  arrayHasValue(array, value) {
+    return array.includes(value);
+  }
 
-    this.values[this.pointer] = value;
+  toggleValue(array, value) {
+    const index = array.indexOf(value);
+    if (index === -1) {
+      array.push(value);
+    } else {
+      array.splice(index, 1);
+    }
+  }
+
+  onSpaceKey() {
+    const { value } = this.columns.get(this.horizontalPointer);
+    const { name } = this.rows.choices[this.pointer];
+    this.toggleValue(this.values[name], value);
     this.spaceKeyPressed = true;
     this.render();
   }
@@ -181,10 +191,9 @@ class TablePrompt extends Base {
           this.status !== "answered" &&
           this.pointer === rowIndex &&
           this.horizontalPointer === columnIndex;
-        const value =
-          column.value === this.values[rowIndex]
-            ? figures.radioOn
-            : figures.radioOff;
+        const value = this.arrayHasValue(this.values[row.name], column.value)
+          ? figures.radioOn
+          : figures.radioOff;
 
         columnValues.push(
           `${isSelected ? "[" : " "} ${value} ${isSelected ? "]" : " "}`
