@@ -22,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eduardoboucas/inquirer-table-prompt.git"
+    "url": "git@github.com:VSymonenko/inquirer-table-prompt.git"
   },
   "keywords": [
     "inquirer",
     "cli",
     "prompt"
   ],
-  "author": "vsymonenko <simonenko744@gmail.com>",
+  "author": "symonenko <simonenko744@gmail.com>",
   "license": "ISC",
   "homepage": "https://github.com/VSymonenko/inquirer-table-prompt#readme",
   "husky": {
